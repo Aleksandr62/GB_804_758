@@ -37,16 +37,6 @@ import ShowExpenses from '../components/ShowExpenses.vue';
 import Pagination from '../components/Pagination.vue';
 import { mapActions } from 'vuex'
 
-const expenses = [
-            {id: 1, date: '2021-03-17', category: 'Food', cost: 1000 },
-            {id: 2, date: '2021-04-12', category: 'Entertaiment', cost: 4500 },     
-            {id: 3, date: '2021-01-21', category: 'Food', cost: 1000 },
-            {id: 4, date: '2021-05-05', category: 'Education', cost: 4500 },      
-            {id: 5, date: '2021-05-10', category: 'Sport', cost: 1000 },
-            {id: 6, date: '2021-02-20', category: 'Navigation', cost: 4500 },                   
-          ]
-const category = ['Food', 'Entertaiment', 'Education', 'Sport', 'Navigation' ]
-
 export default {
   name: 'Dashboard',
   data() {
@@ -90,7 +80,7 @@ export default {
   methods: {
     ...mapActions([
       'addData',
-      'getAllExpenses' 
+      'getAllData' 
     ]),
     
     addNewCost(data) {
@@ -112,10 +102,25 @@ export default {
     },
     addNewCategory(cat) {
         this.$store.commit('addNewCategory', cat)  
-    }      
+    },  
+    fetchData(url) {
+      return fetch(url)
+        .then(result => result.json())
+    }
   },
   created() {
-    this.getAllExpenses({expenses, category})
+    const obj = {}
+    this.fetchData('https://raw.githubusercontent.com/Aleksandr62/GB_804_758/les7/src/store/categories.json')
+    .then(data => {
+      obj.category = data
+      this.getAllData(obj)
+      })
+    this.fetchData('https://raw.githubusercontent.com/Aleksandr62/GB_804_758/les7/src/store/expenses.json')
+    .then(data => {
+      obj.expenses = data
+      this.getAllData(obj)
+      })    
+    
   },  
   watch: {
       attrs: (params) => {
