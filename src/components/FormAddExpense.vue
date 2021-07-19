@@ -64,12 +64,12 @@ export default {
     name: 'FormAddExpense',
     data(){
         return{
-            showForm: !!this.$route.params.category,
+            showForm: !!this.$route?.params.category || false,
             expense: {
                 id: this.countExpenses + 1,
-                date: this.$route.params.category ? new Date() : '',
-                category: this.$route.params.category,
-                cost: this.$route.query.value || 0
+                date: this.$route?.params.category ? new Date() : '',
+                category: this.$route?.params.category,
+                cost: this.$route?.query.value || 0
             }
         }
     },    

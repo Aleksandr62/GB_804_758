@@ -46,7 +46,7 @@ export default new Vuex.Store({
         editData({commit}, cost) {
             commit('editCost', cost)
         },        
-        getAllExpenses({commit}, data) {
+        getAllData({commit}, data) {
             commit('addNewCost', data.expenses)
             commit('addNewCategory', data.category)            
         },
