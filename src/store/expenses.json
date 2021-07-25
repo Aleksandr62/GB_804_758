@@ -1,0 +1,8 @@
+[
+    {"id": 1, "date": "2021-03-17", "category": "Food", "cost": 1000 },
+    {"id": 2, "date": "2021-04-12", "category": "Entertaiment", "cost": 4500 },     
+    {"id": 3, "date": "2021-01-21", "category": "Food", "cost": 1000 },
+    {"id": 4, "date": "2021-05-05", "category": "Education", "cost": 4500 },      
+    {"id": 5, "date": "2021-05-10", "category": "Sport", "cost": 1000 },
+    {"id": 6, "date": "2021-02-20", "category": "Navigation", "cost": 4500 }                  
+  ]

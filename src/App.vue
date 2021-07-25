@@ -1,28 +1,27 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <v-calc />
-  </div>
+  <v-app>
+    <v-app-bar app flat>
+      <v-btn text to="/calculator/">Calculator</v-btn>
+      <v-btn text to="/dashboard/">Dashboard</v-btn>         
+      <v-spacer></v-spacer>
+    </v-app-bar>
+
+    <v-main>
+    <v-container fluid>
+      
+      <router-view></router-view>
+    </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import VCalc from './components/VCalc.vue'
 
 export default {
   name: 'App',
-  components: {
-    VCalc
-  }
-}
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  data: () => ({
+    //
+  }),
+};
+</script>
