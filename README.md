@@ -1,4 +1,4 @@
-# app-calc
+# Personal costs
 
 ## Project setup
 ```
